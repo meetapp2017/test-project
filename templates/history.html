@@ -1,0 +1,27 @@
+<ion-header-bar style="margin-top: 43px;">
+	<h1 class="title" style="text-align: center;">История</h1>
+	<div class="buttons" ng-show="myHistory.length > 0">
+      <button class="button button-assertive" ng-click="remove();"><ion-icon name="trash" size="large" ></ion-icon></button>
+    </div>
+	<div class="buttons">
+      <button class="button button-balanced" ng-click="scrollTop();"><ion-icon name="home" size="large" ></ion-icon></button>
+    </div>
+</ion-header-bar>
+<ion-content style="margin-top: 43px;">
+	<div class="list card" ng-repeat="item in myHistory">
+		<div class="item item-avatar">
+			<img src="{{base_services}}{{item.userImage}}">
+			<h2><ion-icon name="person"></ion-icon>  {{item.username}}</h2>
+			<p><ion-icon name="calendar"></ion-icon> {{item.start_date}}</p>
+			<p><ion-icon name="desktop"></ion-icon> {{item.category}}</p>
+		</div>
+		<div class="item item-body">
+			<h1 ng-show="item.vip > 0"> &#11088; {{item.title}}</h1>
+			<h1 ng-show = "item.vip <= 0">{{item.title}}</h1>
+			<p><img  ng-click="previewImage(item);" src="{{base_services}}{{item.ImageName}}" class="full-image"></p>
+			
+			<a class="button button-balanced" href="#/app/itemDetail/{{item.id}}/{{item.user_id}}"><ion-icon style="position: absolute; top: 7px; margin-left: -18px;" name="eye" size="large"></ion-icon></a>
+			
+		</div>	
+	</div>
+</ion-content>

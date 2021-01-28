@@ -1,0 +1,43 @@
+<ion-modal-view style="margin-top: 43px;">
+	<ion-header-bar>
+		<h1 class="title" style="text-align: center;">Регистрация</h1>
+		<div class="buttons">
+			<button class="button button-balanced" ng-click="closeRegister()"><ion-icon name="arrow-round-back" size="large"></ion-icon></button>
+		</div>
+	</ion-header-bar>
+	<ion-content>
+		<div class="list padding">
+		<p class="assertive">Регистрацията Ви дава достъп до редица услуги, сред които:<br/>Добавяне на обява, съобщения, редакция и други!</p>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label"><ion-icon name="log-in" style="margin-top: 5px;"></ion-icon> Потребител</span>
+				<input type="text" placeholder="Въведи Потребител" ng-model="register.username">
+			</label>
+		  
+			<label class="item item-input item-stacked-label">
+				<span class="input-label"><ion-icon name="mail" style="margin-top: 5px;"></ion-icon> E-mail</span>
+				<input type="text" placeholder="Въведи E-mail" ng-model="register.email">
+			</label>
+		  
+			<label class="item item-input item-stacked-label">
+				<span class="input-label"><ion-icon name="key" style="margin-top: 5px;"></ion-icon> Парола</span>
+				<input type="password" placeholder="Въведи парола" ng-model="register.password">
+			</label>
+		  
+			<label class="item item-input item-stacked-label">
+				<span class="input-label"><ion-icon name="key" style="margin-top: 5px;"></ion-icon> Повтори парола</span>
+				<input type="password" placeholder="Повтори парола" name="repsw" ng-model="register.rePassword" required>
+			</label>
+		  
+			<label class="item item-input item-stacked-label">
+				<span class="input-label"><ion-icon name="book" style="margin-top: 5px;"></ion-icon> Описание</span>
+				<textarea  type="text" placeholder="Описание" ng-model="register.descr"></textarea>
+			</label>
+			
+			<button class="button button-block button-positive" ng-click="doRegister();">Регистрация<ion-icon name="person-add" style="float: right; margin-top: 5px;" size="large"></button>
+			
+			<p style="text-align: center;">Натискайки бутона "Регистрация" Вие се съгласявате с Общите условия и Политиката за поверителност за ползване на <span style="color: red;">***.com</span>.</p>
+		
+		</div>
+	</ion-content>
+  
+</ion-modal-view>

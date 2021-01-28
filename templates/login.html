@@ -1,0 +1,38 @@
+<ion-modal-view style="margin-top: 43px;">
+	<ion-header-bar>
+		<h1 class="title" style="text-align: center;">Вход</h1>
+		<div class="buttons">
+			<button class="button button-balanced" ng-click="closeLogin()"><ion-icon name="arrow-round-back" size="large"></ion-icon></button>
+		</div>
+	</ion-header-bar>
+	<ion-content>
+		<form ng-submit="doLogin()">
+			<div class="list padding">
+				<span  style="text-align: center;"><h4>За вход, моля въведете потребител и парола.</h4></span>
+				<label class="item item-input" style="margin-top: 20px;">
+					<span class="input-label">Потребител</span>
+					<input type="text" ng-model="login.username">
+					<ion-icon name="person" class="right" style="font-size: 20pt; margin-right: 15px;"></ion-icon>
+				</label>
+				<label class="item item-input">
+					<span class="input-label">Парола</span>
+					<input type="password" ng-model="login.password">
+					<ion-icon name="key" class="right" style="font-size: 20pt; margin-right: 15px;"></ion-icon>
+				</label>
+				<label class="item" style="overflow: show; text-overflow: show;">
+					<button class="button button-block button-balanced" type="submit" style="box-shadow: 0 0 0.75px #333; overflow: show;">Вход<ion-icon name="log-in" style="float: right; margin-top: 5px;" size="large"></ion-icon></button>
+					<p style="text-align: center; margin-bottom: 10px;"><strong>ИЛИ</strong></p>
+				</label>				
+				<button class="button button-inline button-positive" style="width: 49%; box-shadow: 0 0 0.75px #333; overflow: show; text-overflow: show;" ng-click="fb_register();"> Facebook
+						<img src="img/fb.png" style="position: absolute; right: 10px; top: 5%; width: auto; height: 90%; filter: drop-shadow(0 0 0.75px #333);"/>
+					</button>
+					<button class="button button-inline button-assertive" style="width: 49%; box-shadow: 0 0 0.75px #333; overflow: show; text-overflow: show;" ng-click="gmail_register();"> Gmail
+						<img src="img/gmailIcon.png" style="position: absolute;right: 10px; top: 5%; width: auto; height: 90%; filter: drop-shadow(0 0 0.75px #333);"/>
+					</button>
+				
+				<p><h4 style="text-align: center;">Ако все още нямате регистрация можете да я направите от бутона регистрция.</h4></p>
+				<button class="button button-block button-positive" ng-click="register();" style="box-shadow: 0 0 0.75px #333;">Регистрация<ion-icon name="person-add" style="float: right; margin-top: 5px;" size="large"></button>
+			</div>
+		</form>
+	</ion-content>
+</ion-modal-view>

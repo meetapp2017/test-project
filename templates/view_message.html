@@ -1,0 +1,20 @@
+<ion-modal-view style="margin-top: 43px">
+	<ion-header-bar>
+		<h1 class="title" style="text-align: center;">Съобщениe</h1>
+		<div class="buttons">
+			<button class="button button-balanced" ng-click="closeViewMessage()"><ion-icon name="arrow-round-back" size="large"></ion-icon></button>
+		</div>
+	</ion-header-bar>
+	<ion-content>
+		<div class="list card">
+			<a class="item item-avatar" ng-click="view_message(message);">
+				<img src="{{base_services}}{{message.ThumbName}}">
+				<h2 class="title" ><ion-icon name="person"></ion-icon> <strong>{{message.username}}</strong></h2>
+				<h2 class="title" ><ion-icon name="calendar"></ion-icon> {{message.date}}</h2>
+				<h2 class="title"><ion-icon name="book"></ion-icon> {{message.title}}</h2>
+			</a>
+			<p class="item item-text-wrap">{{message.message}}</p>
+			<a  class="button button-block button-balanced" href="#/app/send_message/{{message.user_id}}">Oтговор<ion-icon name="md-send" size="large" style="margin-top: 5px; float: right;"></ion-icon></a>
+		</div>
+	</ion-content>
+</ion-modal-view>

@@ -1,0 +1,31 @@
+<ion-header-bar style="margin-top: 43px;">
+	<h1 class="title" style="text-align: center;">Моите обяви</h1>
+	<div class="buttons">
+		<button class="button button-balanced" ng-click="closeMyItems()"><ion-icon name="arrow-round-back" size="large"></ion-icon></button>
+	</div>
+	<div class="buttons">
+		<button class="button button-balanced" ng-click="scrollTop();"><ion-icon name="home" size="large" ></ion-icon></button>
+    </div>
+</ion-header-bar>
+<ion-content style="margin-top: 43px;">
+	<div class="list card" ng-repeat="item in myItems">
+		<div class="item item-avatar">
+			<img src="{{base_services}}{{item.userImage}}">
+			<h2><ion-icon name="person"></ion-icon> {{item.username}}</h2>
+			<p><ion-icon name="calendar"></ion-icon> {{item.start_date}}</p>
+		</div>
+		<div class="item item-body">
+			<h1 ng-show="item.vip > 0"> &#11088; {{item.title}}</h1>
+			<h1 ng-show = "item.vip <= 0">{{item.title}}</h1>
+			<p><a href="#/app/itemDetail/{{item.id}}/{{item.user_id}}"><img  src="{{base_services}}{{item.ImageName}}" class="full-image"></a></p>
+			<p class="item-descr">{{item.descr}}</p>
+			<p>
+				<!--<a href="#" class="subdued">1 Like</a>
+				<a href="#" class="subdued">5 Comments</a>-->
+			</p>
+			
+			<a ng-click="remove_item(item);" href="#/app/myItems"><ion-icon name="trash" class="assertive" size="large" ></ion-icon></a>
+			<a  href="#/app/editItem/{{item.id}}"><ion-icon name="create" class="balanced" size="large" ></ion-icon></a>
+		</div>
+	</div>
+</ion-content>

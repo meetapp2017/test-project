@@ -1,0 +1,36 @@
+<ion-modal-view style="margin-top: 43px">
+	<ion-header-bar>
+		<h1 class="title" style="text-align: center;">Съобщения</h1>
+		<div class="buttons">
+			<button class="button button-balanced" ng-click="closeMessages()"><ion-icon name="arrow-round-back" size="large"></ion-icon></button>
+		</div>
+	</ion-header-bar>
+	<ion-content style="padding-top: 55px;">
+		<button class="messages-selector button button-block button-positive" ng-click="switchMessages(0);" style="transition: all .25s ease-in-out; font-weight: bold; position: fixed !important; top: 0; left: 1.5%; width: 47%; margin-top: -55px;">Получени ({{messages_count}})</button>
+		<button class="messages-selector button button-block button-positive" ng-click="switchMessages(1);" style="transition: all .25s ease-in-out; font-weight: bold; position: fixed !important; top: 0; left: 51.5%; width: 47%; margin-top: -55px;">Изпратени ({{outMessages.length}})</button>
+		<div class="list card" ng-repeat="message in messages" style="margin: 5px;" ng-show="currentMessages == 0">
+			<div class="list">
+				<a class="item item-avatar" ng-click="view_message(message);">
+					<img src="{{base_services}}{{message.ThumbName}}">
+					<span style="font-weight: bold; font-size: 14pt;"><ion-icon name="book"></ion-icon> {{message.title}}</span>
+				</a>
+				<div style="position: absolute; z-index: 1000; right: 15px; top: 25px;" ng-click="remove_message(message);"><ion-icon name="trash" class="assertive" size="large"></ion-icon></div>
+				<span style="font-size: 11pt; font-weight: bold; margin-left: 5px;"><ion-icon name="person"></ion-icon> {{message.username}}</span>
+				<span style="font-size: 11pt; font-weight: bold;"> | </span>
+				<span style="font-size: 11pt; font-weight: bold;" class="title"><ion-icon name="calendar"></ion-icon> {{message.date}}</span>
+			</div>
+		</div>
+		<div class="list card" ng-repeat="message in outMessages" style="margin: 5px;" ng-show="currentMessages == 1">
+			<div class="list">
+				<a class="item item-avatar" ng-click="view_message(message);">
+					<img src="{{base_services}}{{message.ThumbName}}">
+					<span style="font-weight: bold; font-size: 14pt;"><ion-icon name="book"></ion-icon> {{message.title}}</span>
+				</a>
+				<div style="position: absolute; z-index: 1000; right: 15px; top: 25px;" ng-click="remove_message(message);"><ion-icon name="trash" class="assertive" size="large"></ion-icon></div>
+				<span style="font-size: 11pt; font-weight: bold; margin-left: 5px;"><ion-icon name="person"></ion-icon> {{message.username}}</span>
+				<span style="font-size: 11pt; font-weight: bold;"> | </span>
+				<span style="font-size: 11pt; font-weight: bold;" class="title"><ion-icon name="calendar"></ion-icon> {{message.date}}</span>
+			</div>
+		</div>
+	</ion-content>
+</ion-modal-view>

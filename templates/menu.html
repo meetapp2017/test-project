@@ -1,0 +1,64 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-dark">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-positive">
+      <h1 class="title">Kazanlachani.com</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+	    <ion-item menu-close href="#/app/items">
+          <ion-icon name="list" md="md-list"size="large"></ion-icon> <span style="position: relative; top: -7px;">Обяви</span>
+        </ion-item>
+		<ion-item menu-close href="#/app/myItems" ng-show="profile != null">
+          <ion-icon name="list-box" md="md-list-box" size="large"></ion-icon> <span style="position: relative; top: -7px;">Моите обяви</span>
+        </ion-item>
+		<ion-item menu-close href="#/app/addItem">
+          <ion-icon name="add-circle" md="md-add-circle" size="large"></ion-icon> <span style="position: relative; top: -7px;">Добави</span>  
+        </ion-item>
+        <ion-item menu-close href="#/app/profile">
+          <ion-icon name="person" md="md-person" size="large"></ion-icon> <span ng-show="!profile" style="position: relative; top: -7px;">Профил</span><span style="position: absolute; font-weight: bold; white-space: nowrap; top: 23px; border-radius:10px; color: white; background: #52ef88; padding: 3px 8px; margin-left: 5px;" ng-show="profile"><strong> {{profile.username}}</strong></span> 
+        </ion-item>
+		<ion-item menu-close href="#/app/messages" ng-show="profile != null">
+          <ion-icon name="chatboxes" md="md-chatboxes" size="large"></ion-icon> <span style="position: relative; top: -7px;">Съобщения</span><span style="top: 25px;" class="badge badge-assertive">{{messages_count}}</span>
+        </ion-item>
+		<ion-item menu-close href="#/app/favs" ng-show="profile != null">
+          <ion-icon name="heart" md="md-heart" size="large"></ion-icon> <span style="position: relative; top: -7px;">Любими</span>
+        </ion-item> 
+		<ion-item menu-close href="#/app/history" ng-show="profile != null">
+          <ion-icon name="archive" md="md-archive" size="large"></ion-icon> <span style="position: relative; top: -7px;">История</span>
+        </ion-item> 
+        <ion-item menu-close href="#/app/about">
+          <ion-icon name="contact" md="md-contact" size="large"></ion-icon> <span style="position: relative; top: -7px;">За нас</span>
+        </ion-item>
+		<ion-item menu-close href="#/app/logout" ng-show="profile != null">
+          <ion-icon name="exit" md="md-exit" size="large"></ion-icon> <span style="position: relative; top: -7px;">Изход</span>
+        </ion-item> 
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
+<style>
+	ion-list ion-item ion-icon { transition: all .35s ease-in-out; color: black; }
+
+	ion-list ion-item ion-icon.active[name=list] { color: purple; }
+	ion-list ion-item ion-icon.active[name=list-box] { color: rgba(126, 93, 191, 1);; }
+	ion-list ion-item ion-icon.active[name=add-circle] { color: rgba(100, 175, 255, 1); }
+	ion-list ion-item ion-icon.active[name=person] { color: teal; }
+	ion-list ion-item ion-icon.active[name=chatboxes] { color: rgba(75, 220, 90, 1); }
+	ion-list ion-item ion-icon.active[name=heart] { color: #f66; }
+	ion-list ion-item ion-icon.active[name=archive] { color: #464646; }
+	ion-list ion-item ion-icon.active[name=contact] { color: orange; }
+	ion-list ion-item ion-icon.active[name=exit] { color: red; }
+</style>

@@ -1,0 +1,42 @@
+ <ion-modal-view ng-show="profile" style="margin-top: 43px">
+ <ion-header-bar>
+    <h1 class="title" style="text-align: center;">Добави обява</h1>
+    <div class="buttons">
+      <button class="button button-balanced" ng-click="closeNewItem()"><ion-icon name="arrow-round-back" size="large"></ion-icon></button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+		<div class="list padding">
+			<h5 style="text-align: center; color: green; ">
+				Добавяне на безплатна обява в ***.com
+			</h5>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label;" style="color: red;">*<ion-icon name="book"></ion-icon> Заглавие</span>
+				<input type="text" ng-model="item.title" placeholder="Въведете заглавие" required>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label" style="color: red;">*<ion-icon name="list"></ion-icon> Категория</span>
+				<select style = "padding: 10px; width: 60%;" required class="form-control" name="cat" ng-model="item.type" ng-options="item.name for item in itemTypes">
+					<option value="">-Изберете категория-</option>
+				</select>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label" style="color: red;">*<ion-icon name="brush"></ion-icon> Описание</span>
+				<textarea  rows="6" type="text" ng-model="item.descr" placeholder="Описание/Телефон за връзка" required></textarea>
+			</label>
+			
+			<label style="color: red;" class="item item-input item-stacked-label">
+				<h3>снимка само (.JPG формат!)</h3>
+			</label>
+			
+			<label class="item item-input">
+				<span class="input-label"><ion-icon name="images"></ion-icon> Изберете снимка</span>
+				<input type="file" name="item_photo" id="photoBtn"  onchange="angular.element(this).scope().uploadFile(this.files)" /> 		
+				<h5 ng-show="!isValidImage" style="color: red;">Невалидна снимка, изберете .JPG формат!)</h5>
+			</label>
+			
+			<button class="button button-block button-positive" ng-click="addItem();">Качи обявата<ion-icon name="paper-plane" size="large" style="float: right; margin-top: 5px;"></ion-icon></button>
+			<h5 style="color: red;"><ion-icon name="alert"></ion-icon>Всички обяви се преглеждат от администратор преди да бъдат публикувани.</h5>
+		</div>
+  </ion-content>
+</ion-modal-view>

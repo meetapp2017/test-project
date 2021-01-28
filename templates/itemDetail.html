@@ -1,0 +1,33 @@
+<ion-header-bar style="margin-top: 43px;">
+	<h1 class="title" style="text-align: center;">Детайли на обява</h1>
+	 <div class="buttons">
+      <button class="button button-balanced" ng-click="closeDetail();"><ion-icon name="arrow-round-back" size="large" ></ion-icon></button>
+    </div>
+</ion-header-bar>
+<ion-content style="margin-top: 43px;">
+	<div class="list card">
+		<div class="item item-avatar" ng-click="viewProfile(item);">
+			<img src="{{base_services}}{{item.userImage}}">
+			<h2><ion-icon name="person"></ion-icon>  {{item.username}}</h2>
+			<p><ion-icon name="calendar"></ion-icon> {{item.start_date}}</p>
+			<p><ion-icon name="desktop"></ion-icon> {{item.category}}</p>
+		</div>
+		<div class="item item-body">
+			<h1 ng-show="item.vip > 0"> &#11088; {{item.title}}</h1>
+			<h1 ng-show = "item.vip <= 0">{{item.title}}</h1>
+			<p><img  ng-click="previewImage(item);" src="{{base_services}}{{item.ImageName}}" class="full-image"></p>
+			<p id="item-descr">{{item.descr}}</p>
+			<p><ion-icon name="thumbs-up"></ion-icon> Харесвания ({{likes}})</p>
+			<p>
+				<a href="#/app/itemDetail/{{item.id}}/{{item.user_id}}" ng-click="like(item);"><ion-icon name="thumbs-up" size="large"></ion-icon></a>
+				<a href="#/app/itemDetail/{{item.id}}/{{item.user_id}}" ng-click="share(item);"><ion-icon name="share" size="large"></ion-icon></a>
+			   <a  ng-show="profile" class="button button-block button-balanced" href="#/app/send_message/{{item.user_id}}"> Изпрати съобщение <ion-icon name="send" size="large" style="float: right; margin-top: 5px;" ></ion-icon></a>
+			</p>
+			
+			<p ng-show="!profile" style="color: red;">
+				Регистрацията Ви дава достъп до редица услуги, сред които:<br/>Добавяне на обява, съобщения, редакция и други!
+			</p>
+			
+		</div>
+	</div>
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-header-bar style="margin-top: 43px;">
+	<h1 class="title" style="text-align: center;">Обяви на {{profile.username}}</h1>
+	<div class="buttons">
+      <button class="button button-balanced" ng-click="closeUserItems()"><ion-icon name="arrow-round-back" size="large"></ion-icon></button>
+    </div>
+</ion-header-bar>
+<ion-content style="margin-top: 43px;">
+	<div class="list card" ng-repeat="item in items">
+		<div class="item item-body">
+			<h1 ng-show="item.vip > 0"> &#11088; {{item.title}}</h1>
+			<h1 ng-show = "item.vip <= 0">{{item.title}}</h1>
+			<p><a href="#/app/itemDetail/{{item.id}}/{{item.user_id}}"><img  src="{{base_services}}{{item.ImageName}}" class="full-image"></a></p>
+			<p>{{item.descr}}</p>
+			<p>
+				<!--<a href="#" class="subdued">1 Like</a>
+				<a href="#" class="subdued">5 Comments</a>-->
+			</p>
+			
+			<a class="button button-balanced" href="#/app/itemDetail/{{item.id}}/{{item.user_id}}"><ion-icon style="position: absolute; top: 7px; margin-left: -18px;" name="eye" size="large"></ion-icon></a>
+			<a class="button button-positive" ng-click="share(item);"><ion-icon style="position: absolute; top: 7px; margin-left: -18px;" name="share" size="large"></ion-icon></a>
+			<a class="button button-positive" ng-click="like(item);"><ion-icon style="position: absolute; top: 7px; margin-left: -18px;" name="thumbs-up" size="large"></ion-icon></a>
+		</div>
+	</div>
+</ion-content>

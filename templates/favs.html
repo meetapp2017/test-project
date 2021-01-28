@@ -1,0 +1,28 @@
+<ion-header-bar style="margin-top: 43px;">
+	<h1 class="title" style="text-align: center;">Любими</h1>
+	<div class="buttons">
+		<button class="button button-balanced" ng-click="closeFavs()"><ion-icon name="arrow-round-back" size="large"></ion-icon></button>
+	</div>
+	<div class="buttons">
+		<button class="button button-balanced" ng-click="scrollTop();"><ion-icon name="home" size="large" ></ion-icon></button>
+    </div>
+</ion-header-bar>
+<ion-content style="margin-top: 43px;">
+	<div class="list card" ng-repeat="profile in favs">
+		<div class="item item-avatar" ng-click="viewProfile(profile);">
+			<img src="{{base_services}}{{profile.userImage}}">
+			<span style="font-size: 14pt; font-weight: bold;">{{profile.username}}</span>
+		</div>
+		<div class="item item-body" style="overflow: hidden;">
+			<button class="button button-block button-positive" ng-click="sendMessage(profile);" style="font-weight: bold; margin: 5px;">
+				Напиши съобщение<ion-icon name="chatboxes" md="md-chatboxes" size="large" style="float: right; margin-top: 5px;"></ion-icon>
+			</button>
+			<button class="button button-block button-positive" ng-click="viewUserItems(profile);" style="font-weight: bold; margin: 5px;">
+				Всички обяви на потребителя<ion-icon name="list-box" md="md-list-box" size="large" style="float: right; margin-top: 5px;"></ion-icon>
+			</button>
+			<button class="button button-block button-positive" ng-click="remove_fav(profile);" style="font-weight: bold; margin: 5px; background-color: red;">
+				Премахни<ion-icon name="trash" md="md-trash" size="large" style="float: right; margin-top: 5px;"></ion-icon>
+			</button>
+		</div>
+	</div>
+</ion-content>

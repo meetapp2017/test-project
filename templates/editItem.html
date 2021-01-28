@@ -1,0 +1,31 @@
+ <ion-modal-view ng-show="profile" style="margin-top: 43px">
+ <ion-header-bar>
+    <h1 class="title" style="text-align: center;">Редакция</h1>
+    <div class="buttons">
+      <button class="button button-balanced" ng-click="closeEdit()"><ion-icon name="arrow-round-back" size="large"></ion-icon></button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+		<div class="list padding">
+			<h5 style="text-align: center; color: green; ">
+				Редакция на обява
+			</h5>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label;" style="color: red;">*<ion-icon name="book"></ion-icon> Заглавие</span>
+				<input type="text" ng-model="item.title" placeholder="Въведете заглавие" required>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label" style="color: red;">*<ion-icon name="list"></ion-icon> Категория</span>
+				<select style = "padding: 10px; width: 60%;" required class="form-control" name="cat" ng-model="item.type" ng-options="item.name for item in itemTypes">
+					<option value="">-Изберете категория-</option>
+				</select>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label" style="color: red;">*<ion-icon name="brush"></ion-icon> Описание</span>
+				<textarea  rows="6" type="text" ng-model="item.descr" placeholder="Описание/Телефон за връзка" required></textarea>
+			</label>
+			
+			<button class="button button-block button-positive" ng-click="editItem(item);">Редакция<ion-icon name="arrow-dropright"></ion-icon></button>
+		</div>
+  </ion-content>
+</ion-modal-view>

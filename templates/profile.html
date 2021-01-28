@@ -1,0 +1,27 @@
+<ion-modal-view style="margin-top: 43px;">
+  <ion-header-bar>
+    <h1 class="title" style="text-align: center;">Профил</h1>
+    <div class="buttons">
+      <button class="button button-balanced" ng-click="closeProfile()"><ion-icon name="arrow-round-back" size="large"></ion-icon></button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+		
+		<div class="list card">
+		  
+		  <div class="item item-avatar">
+			<img src="{{base_services}}{{profile.ThumbName}}">
+			<h2>{{profile.username}}</h2>
+			<p> {{profile.reg_date}}</p>
+		  </div>
+
+		  <div class="item item-body">
+			<img ng-show ="profile.imgID > 0" class="full-image" src="{{base_services}}{{profile.ImageName}}">
+			
+			<p>{{profile.descr}}</p>
+			
+		  </div>
+
+		</div>
+  </ion-content>
+</ion-modal-view>
